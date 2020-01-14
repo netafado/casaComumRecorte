@@ -9,7 +9,7 @@ gulp.task('build', function (done) {
 	var tasks = [
 	'build-bundle', 
 	'build-nav', 
-	'build-html', 
+	//'build-html', 
 	'watch',
 	'connect'];
 	// clean first and then start bundling
