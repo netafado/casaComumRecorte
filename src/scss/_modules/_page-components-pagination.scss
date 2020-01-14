@@ -1,0 +1,33 @@
+.pagination {
+	.page-item:not(:first-child) {
+		margin-left: 0.4rem;
+	}
+
+	.page-item:first-child:not(.active),
+	.page-item:last-child:not(.active),
+	.page-item.disabled {
+		.page-link {
+			background: lighten($color-primary, 0%);
+			color: $white;
+		}
+	}
+
+	.page-link {
+		border-radius: $border-radius;
+		border-width: 0px;
+
+		&:hover {
+			color: $white;
+		}
+	}
+
+	&.pagination-xs {
+		.page-link {
+			padding: 0.2rem 0.5rem;
+			font-size: rem($fs-xs)
+		}
+	} 
+
+}
+
+

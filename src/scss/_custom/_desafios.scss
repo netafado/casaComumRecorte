@@ -1,0 +1,16 @@
+.desafio{
+    color: white;
+    height: 100%;
+    & > div{
+        padding: 20px
+    }
+    .itemDesafio{
+        h1{
+            font-weight: bolder;
+            font-size: 30px;
+            min-height: 65px;
+            //border: 1px solid red
+        }
+
+    }
+}

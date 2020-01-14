@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<!-- 
+Template Name:  SmartAdmin Responsive WebApp - Template build with Twitter Bootstrap 4
+Version: 4.0.2
+Author: Sunnyat Ahmmed
+Website: http://gootbootstrap.com
+Purchase: https://wrapbootstrap.com/theme/smartadmin-responsive-webapp-WB0573SK0
+License: You must have a valid license purchased only from wrapbootstrap.com (link above) in order to legally use this theme for your project.
+-->
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>
+            Metanoia - Casa Comum Digital
+        </title>
+        <meta name="description" content="Metanoia - Casa Comum Digital">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no, minimal-ui">
+        <!-- Call App Mode on ios devices -->
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <!-- Remove Tap Highlight on Windows Phone IE -->
+        <meta name="msapplication-tap-highlight" content="no">
+        <!-- base css -->
+        <link rel="stylesheet" media="screen, print" href="css/vendors.bundle.css">
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+        <link rel="stylesheet" media="screen, print" href="css/app.bundle.css">
+        <!-- Place favicon.ico in the root directory -->
+        <link rel="shortcut icon" href="https://happybiz-web.s3-sa-east-1.amazonaws.com/nacao-real/icon/76.ico" type="image/x-icon">
+        <link rel="apple-touch-icon" size="57x57" href="https://happybiz-web.s3-sa-east-1.amazonaws.com/nacao-real/icon/57.png?v=2.0.0.3">
+        <link rel="apple-touch-icon" sizes="114x114" href="hhttps://happybiz-web.s3-sa-east-1.amazonaws.com/nacao-real/icon/114.png?v=2.0.0.3">
+        <link rel="apple-touch-icon" size="72x72" href="https://happybiz-web.s3-sa-east-1.amazonaws.com/nacao-real/icon/72.png?v=2.0.0.3">
+        <link rel="apple-touch-icon" size="120x120" href="https://happybiz-web.s3-sa-east-1.amazonaws.com/nacao-real/icon/120.png?v=2.0.0.3">
+        <link rel="apple-touch-icon" size="76x76" href="https://happybiz-web.s3-sa-east-1.amazonaws.com/nacao-real/icon/76.png?v=2.0.0.3">
+        <link rel="apple-touch-icon" size="152x152" href="https://happybiz-web.s3-sa-east-1.amazonaws.com/nacao-real/icon/152.png?v=2.0.0.3">
+        <link rel="mask-icon" href="img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="stylesheet" media="screen, print" href="css/miscellaneous/reactions/reactions.css">
+        <link rel="stylesheet" media="screen, print" href="css/miscellaneous/fullcalendar/fullcalendar.bundle.css">
+        <link rel="stylesheet" media="screen, print" href="css/datagrid/datatables/datatables.bundle.css">
+        <link rel="stylesheet" media="screen, print" href="css/miscellaneous/jqvmap/jqvmap.bundle.css">
+    </head>
+    <body class="mod-bg-1 nav-function-hidden">
+        <!-- DOC: script to save and load page settings -->
+        <script>
+            /**
+             *	This script should be placed right after the body tag for fast execution 
+             *	Note: the script is written in pure javascript and does not depend on thirdparty library
+             **/
+            'use strict';
+
+            var classHolder = document.getElementsByTagName("BODY")[0],
+                /** 
+                 * Load from localstorage
+                 **/
+                themeSettings = (localStorage.getItem('themeSettings')) ? JSON.parse(localStorage.getItem('themeSettings')) :
+                {},
+                themeURL = themeSettings.themeURL || '',
+                themeOptions = themeSettings.themeOptions || '';
+            /** 
+             * Load theme options
+             **/
+            if (themeSettings.themeOptions)
+            {
+                classHolder.className = themeSettings.themeOptions;
+                console.log("%c✔ Theme settings loaded", "color: #148f32");
+            }
+            else
+            {
+                console.log("Heads up! Theme settings is empty or does not exist, loading default settings...");
+            }
+            if (themeSettings.themeURL && !document.getElementById('mytheme'))
+            {
+                var cssfile = document.createElement('link');
+                cssfile.id = 'mytheme';
+                cssfile.rel = 'stylesheet';
+                cssfile.href = themeURL;
+                document.getElementsByTagName('head')[0].appendChild(cssfile);
+            }
+            /** 
+             * Save to localstorage 
+             **/
+            var saveSettings = function()
+            {
+                themeSettings.themeOptions = String(classHolder.className).split(/[^\w-]+/).filter(function(item)
+                {
+                    return /^(nav|header|mod|display)-/i.test(item);
+                }).join(' ');
+                if (document.getElementById('mytheme'))
+                {
+                    themeSettings.themeURL = document.getElementById('mytheme').getAttribute("href");
+                };
+                localStorage.setItem('themeSettings', JSON.stringify(themeSettings));
+            }
+            /** 
+             * Reset settings
+             **/
+            var resetSettings = function()
+            {
+                localStorage.setItem("themeSettings", "");
+            }
+
+        </script>
+        <!-- BEGIN Page Wrapper -->
+
+        <div class="page-wrapper-biz">
+            <!-- modal -->
+                <div class="modal-dialog modal-dialog-right modal-md position-fixed menu-mobile" id="menu-mobile">
+                    <div class="modal-content">
+                        <div class="dropdown-header bg-trans-gradient d-flex justify-content-center align-items-center w-100">
+                            <h4 class="m-0 text-center color-white">
+                                Casa Comum Digtal
+                                <small class="mb-0 opacity-80"></small>
+                            </h4>
+                            <button type="button" class="close text-white position-absolute pos-top pos-right p-2 m-1 mr-2" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true"><i class="fal fa-times"></i></span>
+                            </button>
+                        </div>
+                        <div class="modal-body p-0">
+                            <div class="settings-panel">
+                                <div class="list" id="fh">
+                                    <a href="#" data-action="toggle" data-class="header-function-fixed">
+                                        <span class="onoffswitch-title">Principal</span>
+                                    </a>
+                                    
+                                    
+                                </div>
+                                <div class="list" id="nmp">
+                                    <a href="#" data-action="toggle" data-class="nav-function-fixed">
+                                        <span class="onoffswitch-title">Memórias</span>
+                                    </a>
+                                    
+                                </div>
+                                <div class="list" id="nmp">
+                                    <a href="#" data-action="toggle">
+                                        <span class="onoffswitch-title">Biblioteca</span>
+                                    </a>
+                                    
+                                </div>
+                                <div class="list" id="nmp">
+                                    <a href="#" data-action="toggle" >
+                                        <span class="onoffswitch-title">Espaço Espiritual</span>
+                                    </a>
+
+                                </div>
+                                <div class="list" id="nmp">
+                                    <a href="#" data-action="toggle" >
+                                        <span class="onoffswitch-title">Sala de Convivio</span>
+                                    </a>
+                                    
+                                </div>
+                                <div class="list" id="nmp">
+                                    <a href="#" data-action="toggle">
+                                        <span class="onoffswitch-title">Ascese</span>
+                                    </a>
+                                    
+                                </div>
+
+                                <div class="list" id="nmp">
+                                    <a href="#" onclick="return false;" data-action="toggle">
+                                        <span class="onoffswitch-title">Descobertas</span>
+                                    </a>
+                                    
+                                </div>
+
+                                <hr class="mb-0 mt-4">
+                            </div> <span id="saving"></span>
+                        </div>
+                    </div>
+                </div>
+            <!-- modal -->
+            <div class="page-inner">
+                <!-- BEGIN Left Aside -->
+                <aside class="page-sidebar d-none">
+                    <div class="page-logo">
+                        <a href="#" class="page-logo-link press-scale-down d-flex align-items-center position-relative" data-toggle="modal" data-target="#modal-shortcut">
+                            <img src="img/svg/logo-biz.svg" alt="SmartAdmin WebApp" aria-roledescription="logo" class="logo-biz-menu">
+                            <span class="position-absolute text-white opacity-50 small pos-top pos-right mr-2 mt-n2"></span>
+                            <i class="fal fa-angle-down d-inline-block ml-1 fs-lg color-primary-300"></i>
+                        </a>
+                    </div>
+                    <!-- BEGIN PRIMARY NAVIGATION -->
+                    <nav id="js-primary-nav" class="primary-nav" role="navigation">
+                        <div class="nav-filter">
+                            <div class="position-relative">
+                                <input type="text" id="nav_filter_input" placeholder="Filtrar por" class="form-control" tabindex="0">
+                                <a href="#" onclick="return false;" class="btn-primary btn-search-close js-waves-off" data-action="toggle" data-class="list-filter-active" data-target=".page-sidebar">
+                                    <i class="fal fa-chevron-up"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <img src="img/svg/real.svg" class="profile-image" alt="Dr. Codex Lantern">
+                            <img src="img/card-backgrounds/cover-2-lg.png" class="cover" alt="cover">
+                            <a href="#" onclick="return false;" class="pull-trigger-btn" data-action="toggle" data-class="list-filter-active" data-target=".page-sidebar" data-focus="nav_filter_input">
+                                <i class="fal fa-angle-down"></i>
+                            </a>
+                        </div>
+
+                        <div class="filter-message js-filter-message bg-success-600"></div>
+                    </nav>
+                    <!-- END PRIMARY NAVIGATION -->
+                    
+                    <!-- NAV FOOTER -->
+                    <div class="nav-footer shadow-top">
+                        <a href="#" onclick="return false;" data-action="toggle" data-class="nav-function-minify" class="hidden-md-down">
+                            <i class="ni ni-chevron-right"></i>
+                            <i class="ni ni-chevron-right"></i>
+                        </a>
+                        <ul class="list-table m-auto nav-footer-buttons">
+                            <li>
+                                <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Chat logs">
+                                    <i class="fal fa-comments"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Support Chat">
+                                    <i class="fal fa-life-ring"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Make a call">
+                                    <i class="fal fa-phone"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div> <!-- END NAV FOOTER -->
+                </aside>
+                <!-- END Left Aside -->
+                <div class="page-content-wrapper">
+                    <!-- BEGIN Page Header -->
+                    <header class="page-header" role="banner">
+                        <!-- we need this logo when user switches to nav-function-top -->
+                        <div class="page-logo">
+                            <a href="#" class="page-logo-link press-scale-down d-flex align-items-center position-relative" data-toggle="modal" data-target="#modal-shortcut">
+                                <img src="img/svg/metanoia.svg" alt="Logo Metanoia" aria-roledescription="logo">
+                            </a>
+                        </div>
+                        <!-- DOC: nav menu layout change shortcut -->
+                        <div class="hidden-md-down dropdown-icon-menu position-relative d-none">
+                            <a href="#" class="header-btn btn js-waves-off" data-action="toggle" data-class="nav-function-hidden" title="Hide Navigation">
+                                <i class="ni ni-menu"></i>
+                            </a>
+                            <ul>
+                                <li>
+                                    <a href="#" class="btn js-waves-off" data-action="toggle" data-class="nav-function-minify" title="Minify Navigation">
+                                        <i class="ni ni-minify-nav"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="btn js-waves-off" data-action="toggle" data-class="nav-function-fixed" title="Lock Navigation">
+                                        <i class="ni ni-lock-nav"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- DOC: mobile button appears during mobile width -->
+                        <div class="hidden-lg-up d-none">
+                            <a href="#" class="header-btn btn press-scale-down" data-action="toggle" data-class="mobile-nav-on">
+                                <i class="ni ni-menu"></i>
+                            </a>
+                        </div>
+
+                        <div class="ml-auto d-flex">
+                            <!-- activate app search icon (mobile) -->
+                            <div class="hidden-md-up">
+                                <a href="#" class="header-icon" data-toggle="modal" data-target=".js-modal-settings">
+                                    <i class="fal fa-bars"></i>
+                                </a>
+                            </div>
+                            <!-- app settings -->
+                            <div class="hidden-md-down header-icon menu-principal">
+                                <ul class="d-flex">
+                                    <li>
+                                        <a href="/happybiz.html">Principal</a>    
+                                    </li>
+                                    <li>
+                                        <a href="lista.html">Memórias</a>    
+                                    </li>
+                                    <li>
+                                        <a href="lista.html">Inspirações</a>    
+                                    </li>
+                                    <li>
+                                        <a href="lista.html">Biblioteca</a>    
+                                    </li>
+                                    <li>
+                                        <a href="lista.html">Espaço Espiritual</a>    
+                                    </li>
+                                    <li>
+                                        <a href="lista.html">Sala de convívio</a>    
+                                    </li>
+                                    <li>
+                                        <a href="lista.html">Ascese</a>    
+                                    </li>
+                                    <li>
+                                        <a href="lista.html">Descobertas</a>    
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <a href="#" data-toggle="dropdown" title="drlantern@gotbootstrap.com" class="header-icon d-flex align-items-center justify-content-center ml-2">
+                                    <img src="img/demo/avatars/avatar-admin.png" class="profile-image rounded-circle" alt="Dr. Codex Lantern">
+                                    <!-- you can also add username next to the avatar with the codes below:
+									<span class="ml-1 mr-1 text-truncate text-truncate-header hidden-xs-down">Me</span>
+									<i class="ni ni-chevron-down hidden-xs-down"></i> -->
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-animated dropdown-lg">
+                                    <div class="dropdown-header bg-primary-600 d-flex flex-row py-4 rounded-top">
+                                        <div class="d-flex flex-row align-items-center mt-1 mb-1 color-white">
+                                            <span class="mr-2">
+                                                <img src="/img/isaias.jpg" class="rounded-circle profile-image" alt="Dr. Codex Lantern">
+                                            </span>
+                                            <div class="info-card-text">
+                                                <div class="text-truncate text-truncate-md ">Isaias Francisco dos Santos</div>
+                                                <span class="text-truncate text-truncate-md opacity-80">:)BiZ</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="dropdown-divider m-0"></div>
+                                    <div class="dropdown-divider m-0"></div>
+                                    <a href="#" class="dropdown-item" data-action="app-fullscreen">
+                                        <span data-i18n="drpdwn.fullscreen">Tela Cheia</span>
+                                        <i class="float-right text-muted fw-n">F11</i>
+                                    </a>
+                                    <div class="dropdown-divider m-0"></div>
+                                    <a class="dropdown-item fw-500 pt-3 pb-3" href="page_login_alt.html">
+                                        <span data-i18n="drpdwn.page-logout">Sair</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+                    <!-- END Page Header -->
+                    <!-- BEGIN Page Content -->
+                    <!-- the #js-page-content id is needed for some plugins to initialize -->
+                    <main id="js-page-content" role="main" class="page-content">
+                        <div class="row" id="areaFilosofica">
+                            <div class="col-lg-12" id="carrocelBanner">
+                                <div class="aconteceu" style="background-image: url(/img/banner.jpg);">
+                                    <div class="bg-aconteu bg-academia"></div>
+                                        <div class="textos">
+                                            <h2>Alumiar 2019</h2>
+                                            <p class="limite-3-lines">Silvio Santos Ipsum Valendo um milhão de reaisammm. É por sua conta e riscoamm? Ma o Silvio Santos Ipsum é muitoam interesanteam. Com ele ma você vai gerar textuans ha haae. Ma vale dérreaisam? Ma! Ao adquirir o carnê do Baú, você estará concorrendo a um prêmio de cem mil reaisam. É bom ou não éam? É dinheiro ou não éam? Boca sujuam... sem vergonhuamm. Mah roda a roduamm. Ma você, topa ou não topamm. Ma não existem mulher feiam, existem mulher que não conhece os produtos Jequitiamm. Estamos em ritmo de festamm. Qual é a musicamm?</p>
+                                        </div>
+                                </div>
+                                <div class="aconteceu" style="background-image: url(/img/banner.jpg);">
+                                    <div class="bg-aconteu bg-metaGestao"></div>
+                                        <div class="textos">
+                                            <h2>Alumiar 2019</h2>
+                                            <p class="limite-3-lines">Silvio Santos Ipsum Valendo um milhão de reaisammm. É por sua conta e riscoamm? Ma o Silvio Santos Ipsum é muitoam interesanteam. Com ele ma você vai gerar textuans ha haae. Ma vale dérreaisam? Ma! Ao adquirir o carnê do Baú, você estará concorrendo a um prêmio de cem mil reaisam. É bom ou não éam? É dinheiro ou não éam? Boca sujuam... sem vergonhuamm. Mah roda a roduamm. Ma você, topa ou não topamm. Ma não existem mulher feiam, existem mulher que não conhece os produtos Jequitiamm. Estamos em ritmo de festamm. Qual é a musicamm?</p>
+                                        </div>
+                                </div>
+                                <div class="aconteceu" style="background-image: url(/img/banner.jpg);">
+                                    <div class="bg-aconteu bg-metanoia"></div>
+                                        <div class="textos">
+                                            <h2>Alumiar 2019</h2>
+                                            <p class="limite-3-lines">Silvio Santos Ipsum Valendo um milhão de reaisammm. É por sua conta e riscoamm? Ma o Silvio Santos Ipsum é muitoam interesanteam. Com ele ma você vai gerar textuans ha haae. Ma vale dérreaisam? Ma! Ao adquirir o carnê do Baú, você estará concorrendo a um prêmio de cem mil reaisam. É bom ou não éam? É dinheiro ou não éam? Boca sujuam... sem vergonhuamm. Mah roda a roduamm. Ma você, topa ou não topamm. Ma não existem mulher feiam, existem mulher que não conhece os produtos Jequitiamm. Estamos em ritmo de festamm. Qual é a musicamm?</p>
+                                        </div>
+                                </div>
+                                <div class="aconteceu" style="background-image: url(/img/banner.jpg);">
+                                    <div class="bg-aconteu bg-metaRiqueza"></div>
+                                        <div class="textos">
+                                            <h2>Alumiar 2019</h2>
+                                            <p class="limite-3-lines">Silvio Santos Ipsum Valendo um milhão de reaisammm. É por sua conta e riscoamm? Ma o Silvio Santos Ipsum é muitoam interesanteam. Com ele ma você vai gerar textuans ha haae. Ma vale dérreaisam? Ma! Ao adquirir o carnê do Baú, você estará concorrendo a um prêmio de cem mil reaisam. É bom ou não éam? É dinheiro ou não éam? Boca sujuam... sem vergonhuamm. Mah roda a roduamm. Ma você, topa ou não topamm. Ma não existem mulher feiam, existem mulher que não conhece os produtos Jequitiamm. Estamos em ritmo de festamm. Qual é a musicamm?</p>
+                                        </div>
+                                </div>
+                            </div>                            
+                            <!-- proposito -->
+                            <div class="col-lg-6">
+                                <div id="panel-1" class="panel mod-panel-clean" data-panel-sortable data-panel-fullscreen data-panel-close data-panel-locked data-panel-refresh data-panel-reset data-panel-color>
+                                    <div class="panel-hdr">
+                                        <img src="/img/icones/proposito.png" class="icone-metanoia">
+                                        <h2> 
+                                            Propósito
+                                        </h2>
+                                    </div>
+                                    <div class="panel-container show">
+                                        <div class="panel-content quadro">
+                                            <div id="proposito" class="centerflex">
+                                                <div>
+                                                    <img src="/img/biz/happybiz.svg" />
+                                                    <h1><span class="text-bold">Simplesnologizar </span><br />
+                                                        o Mundo.
+                                                    </h1>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>
+                            <!-- Valores -->
+                            <div class="col-lg-6" >
+                                <div id="panel-2" class="panel" data-panel-sortable data-panel-fullscreen data-panel-close data-panel-locked data-panel-refresh data-panel-reset data-panel-color>
+                                    <div class="panel-hdr">
+                                        <img src="/img/icones/valores.png" class="icone-metanoia">
+                                        <h2> 
+                                            Valores
+                                        </h2>
+                                    </div>
+                                    <div class="panel-container show limite valores-total">
+                                        <div class="panel-content quadro quadro-valores">
+                                            <div id="valores" class="valores">
+                                                <!--Valor-->
+                                                <div class="valor"><!--bg -->
+                                                    <div class="bg-valor bg-metanoia"></div>
+                                                    <div class="valorConteudo">
+                                                        <small>Valor</small>
+                                                        <h2>Simplicidade</h2>
+                                                        <p class="conduta">tornar a vida singela, focando o essencial</p>
+                                                    </div>  
+                                                </div>
+                                                <!--Valor end-->
+
+                                                <!--Valor-->
+                                                <div class="valor"><!--bg -->
+                                                    <div class="bg-valor bg-alumiar"></div>
+                                                    <div class="valorConteudo">
+                                                        <small>Valor</small>
+                                                        <h2>Vocação</h2>
+                                                        <p class="conduta">viver a voz interior</p>
+                                                    </div>  
+                                                </div>
+                                                <!--Valor end-->
+
+                                                <!--Valor-->
+                                                <div class="valor"><!--bg -->
+                                                    <div class="bg-valor bg-academia"></div>
+                                                    <div class="valorConteudo">
+                                                        <small>Valor</small>
+                                                        <h2>Ferseverança</h2>
+                                                        <p class="conduta">Enxergar além do óbvio, mantendo a firmeza no propósito</p>
+                                                    </div>  
+                                                </div>
+                                                <!--Valor end-->
+
+                                                <!--Valor-->
+                                                <div class="valor"><!--bg -->
+                                                    <div class="bg-valor bg-metaRiqueza"></div>
+                                                    <div class="valorConteudo">
+                                                        <small>Valor</small>
+                                                        <h2>Cuidado</h2>
+                                                        <p class="conduta">tomar conta da própria vida, cuidando de sí e também dos outros</p>
+                                                    </div>  
+                                                </div>
+                                                <!--Valor end-->
+
+                                                <!--Valor-->
+                                                <div class="valor"><!--bg -->
+                                                    <div class="bg-valor bg-metaGestao"></div>
+                                                    <div class="valorConteudo">
+                                                        <small>Valor</small>
+                                                        <h2>OBA!</h2>
+                                                        <p class="conduta">curtir a caixa de brinquedos</p>
+                                                    </div>  
+                                                </div>
+                                                <!--Valor end-->
+                                              
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h1>Arquitetura de desafios</h1>
+                                <a href="javascript:void(0);" class="btn btn-primary btn-md btn-icon rounded-circle waves-effect waves-themed btn-estrutura">
+                                    <i class="fal fa-download"></i>
+                                </a>
+                            </div>
+                            <div class="col-lg-4">
+                                <div id="panel-3" class="panel" data-panel-sortable data-panel-fullscreen data-panel-close data-panel-locked data-panel-refresh data-panel-reset data-panel-color>
+                                    <div class="panel-hdr">
+                                        <div class="icone-metanoia-cor bg-alumiar"></div>
+                                        <h2>Desafio da Obra</h2>
+                                    </div>
+                                    <div class="panel-container show quadro">
+                                        <div class="panel-content bg-alumiar h-100">
+                                            <div id="desafioObra" class="desafio">
+                                                <div class="centerflex">
+                                                    <h1 class="text-center">Cultivar <b>relações na ordem natural</b>, revelando as <b>novas riquezas</b> do holograma.
+                                                    </h1>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div id="panel-4" class="panel" data-panel-sortable data-panel-fullscreen data-panel-close data-panel-locked data-panel-refresh data-panel-reset data-panel-color>
+                                    <div class="panel-hdr">
+                                        <div class="icone-metanoia-cor bg-metanoia"></div>
+                                        <h2>Desafios dos áreas</h2>
+                                    </div>
+                                    <div class="panel-container show h-100">
+                                        <div class="panel-content bg-metanoia quadro" >
+                                            <div id="desafioLideres" class="desafio">
+                                                <div class="centerflex" id="car_areas">
+                                                    <div class="itemDesafio">
+                                                        <h1 class="text-center">Universidade Simplesnologica</h1>
+                                                        <h2 class="text-center">Cultivar relações na ordem natural, revelando as novas riquezas do holograma.
+                                                        </h2>
+                                                    </div>
+                                                    <div class="itemDesafio">
+                                                        <h1 class="text-center">CulturAção</h1>
+                                                        <h2 class="text-center">Orquestrar a Unidade impulsionando a Culturapara a obra.
+                                                        </h2>
+                                                    </div>
+                                                    <div class="itemDesafio">
+                                                        <h1 class="text-center">CCS</h1>
+                                                        <h2 class="text-center">Enraizar um novo jeitão de atendimento remando (sempre) contra a maré.
+                                                        </h2>
+                                                    </div>
+                                                    <div class="itemDesafio">
+                                                        <h1 class="text-center">Ateliê de Obas!</h1>
+                                                        <h2 class="text-center">Nutrir o negócio com proficiência na entrega de soluções simplesnológicas.
+                                                        </h2>
+                                                    </div>
+                                                    <div class="itemDesafio">
+                                                        <h1 class="text-center">Brinquedoteca</h1>
+                                                        <h2 class="text-center">Nutrir o jardim de cada cliente para que floresçam novas riquezas.
+                                                        </h2>
+                                                    </div>
+                                                    <div class="itemDesafio">
+                                                        <h1 class="text-center">Nosso Lar</h1>
+                                                        <h2 class="text-center">Padronizar os processosinternos, na medida,para potencializar as riquezas da equipe e da obra.
+                                                        </h2>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div id="panel-5" class="panel" data-panel-sortable data-panel-fullscreen data-panel-close data-panel-locked data-panel-refresh data-panel-reset data-panel-color>
+                                    <div class="panel-hdr">
+                                        <div class="icone-metanoia-cor bg-academia"></div>
+                                        <h2>Desafios das Lideres</h2>
+                                    </div>
+                                    <div class="panel-container show">
+                                        <div class="panel-content bg-academia quadro" >
+                                            <div id="desafioLideres" class="desafio">
+                                                <div class="centerflex" id="car_lideres">
+                                                    <div class="itemDesafio">
+                                                        <h1 class="text-center">Zé Henrique</h1>
+                                                        <h2 class="text-center">Desenvolver as competências da equipe e os processos de geração de Obas!, na medida.
+                                                        </h2>
+                                                    </div>
+                                                    <div class="itemDesafio">
+                                                        <h1 class="text-center">Anderson</h1>
+                                                        <h2 class="text-center">Cultivar os Obas! e as novas tecnologias, na medida, respeitando a nossa tradição e o nosso jeitão de ser. 
+                                                        </h2>
+                                                    </div>
+                                                    <div class="itemDesafio">
+                                                        <h1 class="text-center">Isaías</h1>
+                                                        <h2 class="text-center">Promover oportunidades de desenvolvimento de consciência e competências para simplesnologizar o mundo.
+                                                        </h2>
+                                                    </div>
+                                                    <div class="itemDesafio">
+                                                        <h1 class="text-center">Palominha</h1>
+                                                        <h2 class="text-center">Desenvolver relações estratégicas com os influenciadores/decisores cuidando para que a operação não gere ruídos para o negócio.
+                                                        </h2>
+                                                    </div>
+                                                    <div class="itemDesafio">
+                                                        <h1 class="text-center">Tchesco</h1>
+                                                        <h2 class="text-center">Enchamar nossa galera para simplesnologizar o mundo!
+                                                        </h2>
+                                                    </div>
+                                                    <div class="itemDesafio">
+                                                        <h1 class="text-center">Gabiz</h1>
+                                                        <h2 class="text-center">Inspirar o propósito mantendo a alma da criança sempre presente em nossos dias.
+                                                        </h2>
+                                                    </div>
+                                                    <div class="itemDesafio">
+                                                        <h1 class="text-center">Aninha</h1>
+                                                        <h2 class="text-center">Nutrir as relações revelando as riquezas que estão veladas.
+                                                        </h2>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div id="panel-6" class="panel" data-panel-sortable data-panel-fullscreen data-panel-close data-panel-locked data-panel-refresh data-panel-reset data-panel-color>
+                                    <div class="panel-hdr">
+                                        <img src="/img/icones/metaprojeto.png" class="icone-metanoia">
+                                        <h2>Metaprojetos</h2>
+                                    </div>
+                                    <div class="panel-container show">
+                                        <div class="panel-content" style="height: 230px;">
+                                            <div class="metaProjetos">
+
+                                                <!--metaprojeto-->
+                                                <div class="metaprojeto">
+                                                    <div class="slider">
+                                                        <div class="progress">
+                                                            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                                                        </div>
+                                                    </div>
+                                                    <h3 class="nome">Universidade Simplesnológica</h3>
+                                                    <div class="labels">
+                                                        <span class="badge badge-warning badge-pill">Germinando</span>
+                                                    </div>
+                                                    <p class="desc">Gerar aprendizagem com valores e significado impulsionando o SER humano.</p>
+                                                    <div class="fotos">
+                                                        <div class="participantes">
+                                                            <div class="participante" style="background-image: url(img/demo/avatars/avatar-admin.png)"></div>
+                                                            <div class="participante" style="background-image: url(img/demo/avatars/avatar-admin.png)"></div>
+                                                            <div class="participante" style="background-image: url(img/demo/avatars/avatar-admin.png)"></div>
+                                                            <div class="participante" style="background-image: url(img/demo/avatars/avatar-admin.png)"></div>
+                                                            <div class="lider">
+                                                                <small>Lider</small>
+                                                                <div class="participante" style="background-image: url(img/demo/avatars/avatar-admin.png)"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--metaprojeto end-->
+
+                                                <!--metaprojeto-->
+                                                <div class="metaprojeto">
+                                                    <div class="slider">
+                                                        <div class="progress">
+                                                            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                                                        </div>
+                                                    </div>
+                                                    <h3 class="nome">Universidade Simplesnológica</h3>
+                                                    <div class="labels">
+                                                        <span class="badge badge-warning badge-pill">Germinando</span>
+                                                    </div>
+                                                    <p class="desc">Gerar aprendizagem com valores e significado impulsionando o SER humano.</p>
+                                                    <div class="fotos">
+                                                        <div class="participantes">
+                                                            <div class="participante" style="background-image: url(img/demo/avatars/avatar-admin.png)"></div>
+                                                            <div class="participante" style="background-image: url(img/demo/avatars/avatar-admin.png)"></div>
+                                                            <div class="participante" style="background-image: url(img/demo/avatars/avatar-admin.png)"></div>
+                                                            <div class="participante" style="background-image: url(img/demo/avatars/avatar-admin.png)"></div>
+                                                            <div class="lider">
+                                                                <small>Lider</small>
+                                                                <div class="participante" style="background-image: url(img/demo/avatars/avatar-admin.png)"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--metaprojeto end-->
+
+                                                <!--metaprojeto-->
+                                                <div class="metaprojeto">
+                                                    <div class="slider">
+                                                        <div class="progress">
+                                                            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                                                        </div>
+                                                    </div>
+                                                    <h3 class="nome">Universidade Simplesnológica</h3>
+                                                    <div class="labels">
+                                                        <span class="badge badge-warning badge-pill">Germinando</span>
+                                                    </div>
+                                                    <p class="desc">Gerar aprendizagem com valores e significado impulsionando o SER humano.</p>
+                                                    <div class="fotos">
+                                                        <div class="participantes">
+                                                            <div class="participante" style="background-image: url(img/demo/avatars/avatar-admin.png)"></div>
+                                                            <div class="participante" style="background-image: url(img/demo/avatars/avatar-admin.png)"></div>
+                                                            <div class="participante" style="background-image: url(img/demo/avatars/avatar-admin.png)"></div>
+                                                            <div class="participante" style="background-image: url(img/demo/avatars/avatar-admin.png)"></div>
+                                                            <div class="lider">
+                                                                <small>Lider</small>
+                                                                <div class="participante" style="background-image: url(img/demo/avatars/avatar-admin.png)"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--metaprojeto end-->
+                                                <!--metaprojeto-->
+                                                <div class="metaprojeto">
+                                                    <div class="slider">
+                                                        <div class="progress">
+                                                            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                                                        </div>
+                                                    </div>
+                                                    <h3 class="nome">Universidade Simplesnológica</h3>
+                                                    <div class="labels">
+                                                        <span class="badge badge-warning badge-pill">Germinando</span>
+                                                    </div>
+                                                    <p class="desc">Gerar aprendizagem com valores e significado impulsionando o SER humano.</p>
+                                                    <div class="fotos">
+                                                        <div class="participantes">
+                                                            <div class="participante" style="background-image: url(img/demo/avatars/avatar-admin.png)"></div>
+                                                            <div class="participante" style="background-image: url(img/demo/avatars/avatar-admin.png)"></div>
+                                                            <div class="participante" style="background-image: url(img/demo/avatars/avatar-admin.png)"></div>
+                                                            <div class="participante" style="background-image: url(img/demo/avatars/avatar-admin.png)"></div>
+                                                            <div class="lider">
+                                                                <small>Lider</small>
+                                                                <div class="participante" style="background-image: url(img/demo/avatars/avatar-admin.png)"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--metaprojeto end-->
+                                                <!--metaprojeto-->
+                                                <div class="metaprojeto">
+                                                    <div class="slider">
+                                                        <div class="progress">
+                                                            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                                                        </div>
+                                                    </div>
+                                                    <h3 class="nome">Universidade Simplesnológica</h3>
+                                                    <div class="labels">
+                                                        <span class="badge badge-warning badge-pill">Germinando</span>
+                                                    </div>
+                                                    <p class="desc">Gerar aprendizagem com valores e significado impulsionando o SER humano.</p>
+                                                    <div class="fotos">
+                                                        <div class="participantes">
+                                                            <div class="participante" style="background-image: url(img/demo/avatars/avatar-admin.png)"></div>
+                                                            <div class="participante" style="background-image: url(img/demo/avatars/avatar-admin.png)"></div>
+                                                            <div class="participante" style="background-image: url(img/demo/avatars/avatar-admin.png)"></div>
+                                                            <div class="participante" style="background-image: url(img/demo/avatars/avatar-admin.png)"></div>
+                                                            <div class="lider">
+                                                                <small>Lider</small>
+                                                                <div class="participante" style="background-image: url(img/demo/avatars/avatar-admin.png)"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--metaprojeto end-->
+                                                <!--metaprojeto-->
+                                                <div class="metaprojeto">
+                                                    <div class="slider">
+                                                        <div class="progress">
+                                                            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                                                        </div>
+                                                    </div>
+                                                    <h3 class="nome">Universidade Simplesnológica</h3>
+                                                    <div class="labels">
+                                                        <span class="badge badge-warning badge-pill">Germinando</span>
+                                                    </div>
+                                                    <p class="desc">Gerar aprendizagem com valores e significado impulsionando o SER humano.</p>
+                                                    <div class="fotos">
+                                                        <div class="participantes">
+                                                            <div class="participante" style="background-image: url(img/demo/avatars/avatar-admin.png)"></div>
+                                                            <div class="participante" style="background-image: url(img/demo/avatars/avatar-admin.png)"></div>
+                                                            <div class="participante" style="background-image: url(img/demo/avatars/avatar-admin.png)"></div>
+                                                            <div class="participante" style="background-image: url(img/demo/avatars/avatar-admin.png)"></div>
+                                                            <div class="lider">
+                                                                <small>Lider</small>
+                                                                <div class="participante" style="background-image: url(img/demo/avatars/avatar-admin.png)"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--metaprojeto end-->
+                                                <!--metaprojeto-->
+                                                <div class="metaprojeto">
+                                                    <div class="slider">
+                                                        <div class="progress">
+                                                            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                                                        </div>
+                                                    </div>
+                                                    <h3 class="nome">Universidade Simplesnológica</h3>
+                                                    <div class="labels">
+                                                        <span class="badge badge-warning badge-pill">Germinando</span>
+                                                    </div>
+                                                    <p class="desc">Gerar aprendizagem com valores e significado impulsionando o SER humano.</p>
+                                                    <div class="fotos">
+                                                        <div class="participantes">
+                                                            <div class="participante" style="background-image: url(img/demo/avatars/avatar-admin.png)"></div>
+                                                            <div class="participante" style="background-image: url(img/demo/avatars/avatar-admin.png)"></div>
+                                                            <div class="participante" style="background-image: url(img/demo/avatars/avatar-admin.png)"></div>
+                                                            <div class="participante" style="background-image: url(img/demo/avatars/avatar-admin.png)"></div>
+                                                            <div class="lider">
+                                                                <small>Lider</small>
+                                                                <div class="participante" style="background-image: url(img/demo/avatars/avatar-admin.png)"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--metaprojeto end-->
+                                                <!--metaprojeto-->
+                                                <div class="metaprojeto">
+                                                    <div class="slider">
+                                                        <div class="progress">
+                                                            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                                                        </div>
+                                                    </div>
+                                                    <h3 class="nome">Universidade Simplesnológica</h3>
+                                                    <div class="labels">
+                                                        <span class="badge badge-warning badge-pill">Germinando</span>
+                                                    </div>
+                                                    <p class="desc">Gerar aprendizagem com valores e significado impulsionando o SER humano.</p>
+                                                    <div class="fotos">
+                                                        <div class="participantes">
+                                                            <div class="participante" style="background-image: url(img/demo/avatars/avatar-admin.png)" ></div>
+                                                            <div class="participante" style="background-image: url(img/demo/avatars/avatar-admin.png)"></div>
+                                                            <div class="participante" style="background-image: url(img/demo/avatars/avatar-admin.png)"></div>
+                                                            <div class="participante" style="background-image: url(img/demo/avatars/avatar-admin.png)"></div>
+                                                            <div class="lider">
+                                                                <small>Lider</small>
+                                                                <div class="participante" style="background-image: url(img/demo/avatars/avatar-admin.png)"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--metaprojeto end-->
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div id="panel-7" class="panel" data-panel-sortable data-panel-fullscreen data-panel-close data-panel-locked data-panel-refresh data-panel-reset data-panel-color>
+                                    <div class="panel-hdr">
+                                        <img src="/img/icones/sistemica.png" class="icone-metanoia">                                        
+                                        <h2>Estrutura sistêmica </h2>
+                                    </div>
+                                    <div class="panel-container show ">
+                                        <div class="panel-content p-0 estrutura quadro" style="background-image: url(/img/arranjo.jpg);">
+                                            <a href="javascript:void(0);" class="btn btn-primary btn-lg btn-icon rounded-circle waves-effect waves-themed btn-estrutura">
+                                                <i class="fal fa-download"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div id="panel-8" class="panel" data-panel-sortable data-panel-fullscreen data-panel-close data-panel-locked data-panel-refresh data-panel-reset data-panel-color>
+                                    <div class="panel-hdr text-primary">
+                                        <img src="/img/icones/trama.png" class="icone-metanoia">  
+                                        <h2>Trama</h2>
+                                        <div class="panel-toolbar tramaHeader" role="menu" >
+                                            <a class="btn btn-panel hover-effect-dot waves-effect waves-themed dc" data-alvo="#dimensaoCausal"></a>
+                                            <a class="btn btn-panel hover-effect-dot waves-effect waves-themed dp" data-alvo="#dimensaoPotencial"></a>
+                                            <a class="btn btn-panel hover-effect-dot waves-effect waves-themed df" data-alvo="#dimensaoFilosofica"></a>
+                                            <a class="btn btn-panel hover-effect-dot waves-effect waves-themed de" data-alvo="#dimensaoEconomica"></a>  
+                                        </div>
+                                    </div>
+                                    <div class="panel-container show" >
+                                        <div id="trama">
+                                            <!-- Dimensao causal-->
+                                            <div class="panel-content bg-metaGestao tramaItem quadro dc" id="dimensaoCausal" style="display: block;">
+                                                <div class="desafio trama-wrapper">
+                                                    <h1 class="text-center">Dimensão Causal</h1>
+                                                    <div class="centerflex">
+                                                        <div class="itemDesafio trama-obra">
+                                                            <h2 class="text-center">Cultivar relações na ordem natural, revelando as novas riquezas do holograma.
+                                                            </h2>
+                                                        </div>   
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Dimensao causal end-->
+                                            <!-- Dimensao Potencial-->
+                                            <div class="panel-content bg-academia tramaItem quadro dp" id="dimensaoPotencial">
+                                                <div class="desafio trama-wrapper">
+                                                    <h1 class="text-center">Dimensão Potencial</h1>
+                                                    <div class="centerflex car_areas">
+                                                        <div class="itemDesafio trama-obra">
+                                                            <h2 class="text-center">Cultivar relações na ordem natural, revelando as novas riquezas do holograma.
+                                                            </h2>
+                                                        </div>
+                                                        <div class="itemDesafio trama-obra">
+                                                            <h2 class="text-center">Cultivar relações na ordem natural, revelando as novas riquezas do holograma.
+                                                            </h2>
+                                                        </div>
+                                                        <div class="itemDesafio trama-obra">
+                                                            <h2 class="text-center">Cultivar relações na ordem natural, revelando as novas riquezas do holograma.
+                                                            </h2>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Dimensao Potencial end-->
+
+                                            <!-- Dimensao Filosófica-->
+                                            <div class="panel-content bg-alumiar tramaItem quadro df" id="dimensaoFilosofica">
+                                                <div class="desafio trama-wrapper">
+                                                    <h1 class="text-center">Dimensão Filosófica</h1>
+                                                    <div class="centerflex car_areas">
+                                                        <div class="itemDesafio trama-obra">
+                                                            <h2 class="text-center">Cultivar relações na ordem natural, revelando as novas riquezas do holograma.
+                                                            </h2>
+                                                        </div>
+                                                        <div class="itemDesafio trama-obra">
+                                                            <h2 class="text-center">Cultivar relações na ordem natural, revelando as novas riquezas do holograma.
+                                                            </h2>
+                                                        </div>
+                                                        <div class="itemDesafio trama-obra">
+                                                            <h2 class="text-center">Cultivar relações na ordem natural, revelando as novas riquezas do holograma.
+                                                            </h2>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Dimensao Filosófica end-->
+
+                                            <!-- Dimensao economica-->
+                                            <div class="panel-content bg-metanoia tramaItem quadro dc" id="dimensaoEconomica">
+                                                <div class="desafio trama-wrapper">
+                                                    <h1 class="text-center">Dimensão Economica</h1>
+                                                    <div class="centerflex car_areas">
+                                                        <div class="itemDesafio trama-obra">
+                                                            <h2 class="text-center">Cultivar relações na ordem natural, revelando as novas riquezas do holograma.
+                                                            </h2>
+                                                        </div>
+                                                        <div class="itemDesafio trama-obra">
+                                                            <h2 class="text-center">Cultivar relações na ordem natural, revelando as novas riquezas do holograma.
+                                                            </h2>
+                                                        </div>
+                                                        <div class="itemDesafio trama-obra">
+                                                            <h2 class="text-center">Cultivar relações na ordem natural, revelando as novas riquezas do holograma.
+                                                            </h2>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Dimensao economica end-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4">
+                                <div id="panel-7" class="panel" data-panel-sortable data-panel-fullscreen data-panel-close data-panel-locked data-panel-refresh data-panel-reset data-panel-color>
+                                    <div class="panel-hdr">
+                                        <h2> Novidades </h2>
+                                        <div class="panel-toolbar pr-3">
+                                            <button class="btn btn-sm btn-primary m waves-effect waves-themed" >Ver todos</button>
+                                        </div>
+                                    </div>
+                                    <div class="panel-container show limite">
+                                        <div class="panel-content estrutura quadro overflow-auto">
+                                            <div class="overflow-hidden ">
+                                                <!-- lista -->
+                                                <div class="row no-gutters lista-artigos">                                                    
+                                                    <div class="col-4 col-sm-3" >
+                                                        <img src="img/demo/profile/article-healthyfood.png" alt="" srcset="" class="img-fluid rounded ">
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="flex-1 p-2 p-md-4 h-100">
+                                                            <h6>Categoria</h6>
+                                                            <h4 class="text-dark">
+                                                                Healthy food
+                                                            </h4>
+                                                            <p class="m-0">sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.
+                                                            </p>
+                                                        </div>
+                                                    </div>                                                                                                       
+                                                </div>
+                                                <!-- lista end --> 
+                                                <!-- lista -->
+                                                <div class="row no-gutters lista-artigos">                                                    
+                                                    <div class="col-4 col-sm-3" >
+                                                        <img src="img/demo/profile/article-healthyfood.png" alt="" srcset="" class="img-fluid rounded ">
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="flex-1 p-2 p-md-4 h-100">
+                                                            <h6>Categoria</h6>
+                                                            <h4 class="text-dark">
+                                                                Healthy food
+                                                            </h4>
+                                                            <p class="m-0">sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.
+                                                            </p>
+                                                        </div>
+                                                    </div>                                                                                                       
+                                                </div>
+                                                <!-- lista end -->  
+                                                <!-- lista -->
+                                                <div class="row no-gutters lista-artigos">                                                    
+                                                    <div class="col-4 col-sm-3" >
+                                                        <img src="img/demo/profile/article-healthyfood.png" alt="" srcset="" class="img-fluid rounded ">
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="flex-1 p-2 p-md-4 h-100">
+                                                            <h6>Categoria</h6>
+                                                            <h4 class="text-dark">
+                                                                Healthy food
+                                                            </h4>
+                                                            <p class="m-0">sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.
+                                                            </p>
+                                                        </div>
+                                                    </div>                                                                                                       
+                                                </div>
+                                                <!-- lista end --> 
+                                                <!-- lista -->
+                                                <div class="row no-gutters lista-artigos">                                                    
+                                                    <div class="col-4 col-sm-3" >
+                                                        <img src="img/demo/profile/article-healthyfood.png" alt="" srcset="" class="img-fluid rounded ">
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="flex-1 p-2 p-md-4 h-100">
+                                                            <h6>Categoria</h6>
+                                                            <h4 class="text-dark">
+                                                                Healthy food
+                                                            </h4>
+                                                            <p class="m-0">sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.
+                                                            </p>
+                                                        </div>
+                                                    </div>                                                                                                       
+                                                </div>
+                                                <!-- lista end --> 
+                                                <!-- lista -->
+                                                <div class="row no-gutters lista-artigos">                                                    
+                                                    <div class="col-4 col-sm-3" >
+                                                        <img src="img/demo/profile/article-healthyfood.png" alt="" srcset="" class="img-fluid rounded ">
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="flex-1 p-2 p-md-4 h-100">
+                                                            <h6>Categoria</h6>
+                                                            <h4 class="text-dark">
+                                                                Healthy food
+                                                            </h4>
+                                                            <p class="m-0">sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.
+                                                            </p>
+                                                        </div>
+                                                    </div>                                                                                                       
+                                                </div>
+                                                <!-- lista end --> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4">
+                                <div id="panel-7" class="panel" data-panel-sortable data-panel-fullscreen data-panel-close data-panel-locked data-panel-refresh data-panel-reset data-panel-color>
+                                    <div class="panel-hdr">
+                                        <h2>Inspirações</h2>
+                                        <div class="panel-toolbar pr-3">
+                                            <button class="btn btn-sm btn-primary m waves-effect waves-themed" >Ver todos</button>
+                                        </div>
+                                    </div>
+                                    <div class="panel-container show limite">
+                                        <div class="panel-content estrutura quadro overflow-auto">
+                                            <div class="overflow-hidden ">
+                                                <!-- lista -->
+                                                <div class="row no-gutters lista-artigos">                                                    
+                                                    <div class="col-4 col-sm-3" >
+                                                        <img src="img/demo/profile/article-healthyfood.png" alt="" srcset="" class="img-fluid rounded ">
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="flex-1 p-2 p-md-4 h-100">
+                                                            <h6>Categoria</h6>
+                                                            <h4 class="text-dark">
+                                                                Healthy food
+                                                            </h4>
+                                                            <p class="m-0">sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.
+                                                            </p>
+                                                        </div>
+                                                    </div>                                                                                                       
+                                                </div>
+                                                <!-- lista end --> 
+                                                <!-- lista -->
+                                                <div class="row no-gutters lista-artigos">                                                    
+                                                    <div class="col-4 col-sm-3" >
+                                                        <img src="img/demo/profile/article-healthyfood.png" alt="" srcset="" class="img-fluid rounded ">
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="flex-1 p-2 p-md-4 h-100">
+                                                            <h6>Categoria</h6>
+                                                            <h4 class="text-dark">
+                                                                Healthy food
+                                                            </h4>
+                                                            <p class="m-0">sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.
+                                                            </p>
+                                                        </div>
+                                                    </div>                                                                                                       
+                                                </div>
+                                                <!-- lista end -->  
+                                                <!-- lista -->
+                                                <div class="row no-gutters lista-artigos">                                                    
+                                                    <div class="col-4 col-sm-3" >
+                                                        <img src="img/demo/profile/article-healthyfood.png" alt="" srcset="" class="img-fluid rounded ">
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="flex-1 p-2 p-md-4 h-100">
+                                                            <h6>Categoria</h6>
+                                                            <h4 class="text-dark">
+                                                                Healthy food
+                                                            </h4>
+                                                            <p class="m-0">sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.
+                                                            </p>
+                                                        </div>
+                                                    </div>                                                                                                       
+                                                </div>
+                                                <!-- lista end --> 
+                                                <!-- lista -->
+                                                <div class="row no-gutters lista-artigos">                                                    
+                                                    <div class="col-4 col-sm-3" >
+                                                        <img src="img/demo/profile/article-healthyfood.png" alt="" srcset="" class="img-fluid rounded ">
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="flex-1 p-2 p-md-4 h-100">
+                                                            <h6>Categoria</h6>
+                                                            <h4 class="text-dark">
+                                                                Healthy food
+                                                            </h4>
+                                                            <p class="m-0">sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.
+                                                            </p>
+                                                        </div>
+                                                    </div>                                                                                                       
+                                                </div>
+                                                <!-- lista end --> 
+                                                <!-- lista -->
+                                                <div class="row no-gutters lista-artigos">                                                    
+                                                    <div class="col-4 col-sm-3" >
+                                                        <img src="img/demo/profile/article-healthyfood.png" alt="" srcset="" class="img-fluid rounded ">
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="flex-1 p-2 p-md-4 h-100">
+                                                            <h6>Categoria</h6>
+                                                            <h4 class="text-dark">
+                                                                Healthy food
+                                                            </h4>
+                                                            <p class="m-0">sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.
+                                                            </p>
+                                                        </div>
+                                                    </div>                                                                                                       
+                                                </div>
+                                                <!-- lista end --> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <div class="col-lg-4">
+                                <div id="panel-7" class="panel" data-panel-sortable data-panel-fullscreen data-panel-close data-panel-locked data-panel-refresh data-panel-reset data-panel-color>
+                                    <div class="panel-hdr">
+                                        <h2>Calendário
+                                        </h2>
+                                    </div>
+                                    <div class="panel-container show limite">
+                                        <div class="panel-content estrutura quadro overflow-auto">
+                                            <div class="demo-calendar fc fc-ltr fc-unthemed">
+                                                <div class="fc-view-container">
+                                                    <div class="fc-view fc-listMonth-view fc-list-view fc-widget-content">
+                                                        <div class="fc-scroller" style="overflow: hidden auto; height: 752px;">
+                                                            <table class="fc-list-table ">
+                                                                <tbody>
+                                                                    <tr class="fc-list-heading" data-date="2020-01-01">
+                                                                        <td class="fc-widget-header" colspan="3"><a class="fc-list-heading-main" data-goto="{&quot;date&quot;:&quot;2020-01-01&quot;,&quot;type&quot;:&quot;day&quot;}">1 de janeiro de 2020</a><a class="fc-list-heading-alt" data-goto="{&quot;date&quot;:&quot;2020-01-01&quot;,&quot;type&quot;:&quot;day&quot;}">quarta-feira</a></td>
+                                                                    </tr>
+                                                                    <tr class="fc-list-item">
+                                                                        <td class="fc-list-item-time fc-widget-content">dia inteiro</td>
+                                                                        <td class="fc-list-item-marker fc-widget-content"><span class="fc-event-dot"></span></td>
+                                                                        <td class="fc-list-item-title fc-widget-content"><a>All Day Event</a></td>
+                                                                    </tr>
+                                                                    <tr class="fc-list-heading" data-date="2020-01-07">
+                                                                        <td class="fc-widget-header" colspan="3"><a class="fc-list-heading-main" data-goto="{&quot;date&quot;:&quot;2020-01-07&quot;,&quot;type&quot;:&quot;day&quot;}">7 de janeiro de 2020</a><a class="fc-list-heading-alt" data-goto="{&quot;date&quot;:&quot;2020-01-07&quot;,&quot;type&quot;:&quot;day&quot;}">terça-feira</a></td>
+                                                                    </tr>
+                                                                    <tr class="fc-list-item">
+                                                                        <td class="fc-list-item-time fc-widget-content">dia inteiro</td>
+                                                                        <td class="fc-list-item-marker fc-widget-content"><span class="fc-event-dot"></span></td>
+                                                                        <td class="fc-list-item-title fc-widget-content"><a>Long Event</a></td>
+                                                                    </tr>
+                                                                    <tr class="fc-list-item">
+                                                                        <td class="fc-list-item-time fc-widget-content">dia inteiro</td>
+                                                                        <td class="fc-list-item-marker fc-widget-content"><span class="fc-event-dot"></span></td>
+                                                                        <td class="fc-list-item-title fc-widget-content"><a>Conference</a></td>
+                                                                    </tr>
+                                                                    <tr class="fc-list-heading" data-date="2020-01-08">
+                                                                        <td class="fc-widget-header" colspan="3"><a class="fc-list-heading-main" data-goto="{&quot;date&quot;:&quot;2020-01-08&quot;,&quot;type&quot;:&quot;day&quot;}">8 de janeiro de 2020</a><a class="fc-list-heading-alt" data-goto="{&quot;date&quot;:&quot;2020-01-08&quot;,&quot;type&quot;:&quot;day&quot;}">quarta-feira</a></td>
+                                                                    </tr>
+                                                                    <tr class="fc-list-item">
+                                                                        <td class="fc-list-item-time fc-widget-content">dia inteiro</td>
+                                                                        <td class="fc-list-item-marker fc-widget-content"><span class="fc-event-dot"></span></td>
+                                                                        <td class="fc-list-item-title fc-widget-content"><a>Long Event</a></td>
+                                                                    </tr>
+                                                                    <tr class="fc-list-item">
+                                                                        <td class="fc-list-item-time fc-widget-content">dia inteiro</td>
+                                                                        <td class="fc-list-item-marker fc-widget-content"><span class="fc-event-dot"></span></td>
+                                                                        <td class="fc-list-item-title fc-widget-content"><a>Conference</a></td>
+                                                                    </tr>
+                                                                    <tr class="fc-list-item">
+                                                                        <td class="fc-list-item-time fc-widget-content">7:30 - 9:30</td>
+                                                                        <td class="fc-list-item-marker fc-widget-content"><span class="fc-event-dot"></span></td>
+                                                                        <td class="fc-list-item-title fc-widget-content"><a>Meeting</a></td>
+                                                                    </tr>
+                                                                    <tr class="fc-list-item">
+                                                                        <td class="fc-list-item-time fc-widget-content">9:00</td>
+                                                                        <td class="fc-list-item-marker fc-widget-content"><span class="fc-event-dot"></span></td>
+                                                                        <td class="fc-list-item-title fc-widget-content"><a>Lunch</a></td>
+                                                                    </tr>
+                                                                    <tr class="fc-list-item">
+                                                                        <td class="fc-list-item-time fc-widget-content">11:30</td>
+                                                                        <td class="fc-list-item-marker fc-widget-content"><span class="fc-event-dot"></span></td>
+                                                                        <td class="fc-list-item-title fc-widget-content"><a>Meeting</a></td>
+                                                                    </tr>
+                                                                    <tr class="fc-list-item">
+                                                                        <td class="fc-list-item-time fc-widget-content">14:30</td>
+                                                                        <td class="fc-list-item-marker fc-widget-content"><span class="fc-event-dot"></span></td>
+                                                                        <td class="fc-list-item-title fc-widget-content"><a>Happy Hour</a></td>
+                                                                    </tr>
+                                                                    <tr class="fc-list-item">
+                                                                        <td class="fc-list-item-time fc-widget-content">17:00</td>
+                                                                        <td class="fc-list-item-marker fc-widget-content"><span class="fc-event-dot"></span></td>
+                                                                        <td class="fc-list-item-title fc-widget-content"><a>Dinner</a></td>
+                                                                    </tr>
+                                                                    <tr class="fc-list-heading" data-date="2020-01-09">
+                                                                        <td class="fc-widget-header" colspan="3"><a class="fc-list-heading-main" data-goto="{&quot;date&quot;:&quot;2020-01-09&quot;,&quot;type&quot;:&quot;day&quot;}">9 de janeiro de 2020</a><a class="fc-list-heading-alt" data-goto="{&quot;date&quot;:&quot;2020-01-09&quot;,&quot;type&quot;:&quot;day&quot;}">quinta-feira</a></td>
+                                                                    </tr>
+                                                                    <tr class="fc-list-item">
+                                                                        <td class="fc-list-item-time fc-widget-content">dia inteiro</td>
+                                                                        <td class="fc-list-item-marker fc-widget-content"><span class="fc-event-dot"></span></td>
+                                                                        <td class="fc-list-item-title fc-widget-content"><a>Long Event</a></td>
+                                                                    </tr>
+                                                                    <tr class="fc-list-item">
+                                                                        <td class="fc-list-item-time fc-widget-content">4:00</td>
+                                                                        <td class="fc-list-item-marker fc-widget-content"><span class="fc-event-dot"></span></td>
+                                                                        <td class="fc-list-item-title fc-widget-content"><a>Birthday Party</a></td>
+                                                                    </tr>
+                                                                    <tr class="fc-list-item">
+                                                                        <td class="fc-list-item-time fc-widget-content">13:00</td>
+                                                                        <td class="fc-list-item-marker fc-widget-content"><span class="fc-event-dot"></span></td>
+                                                                        <td class="fc-list-item-title fc-widget-content"><a>Repeating Event</a></td>
+                                                                    </tr>
+                                                                    <tr class="fc-list-heading" data-date="2020-01-16">
+                                                                        <td class="fc-widget-header" colspan="3"><a class="fc-list-heading-main" data-goto="{&quot;date&quot;:&quot;2020-01-16&quot;,&quot;type&quot;:&quot;day&quot;}">16 de janeiro de 2020</a><a class="fc-list-heading-alt" data-goto="{&quot;date&quot;:&quot;2020-01-16&quot;,&quot;type&quot;:&quot;day&quot;}">quinta-feira</a></td>
+                                                                    </tr>
+                                                                    <tr class="fc-list-item">
+                                                                        <td class="fc-list-item-time fc-widget-content">13:00</td>
+                                                                        <td class="fc-list-item-marker fc-widget-content"><span class="fc-event-dot"></span></td>
+                                                                        <td class="fc-list-item-title fc-widget-content"><a>Repeating Event</a></td>
+                                                                    </tr>
+                                                                    <tr class="fc-list-heading" data-date="2020-01-28">
+                                                                        <td class="fc-widget-header" colspan="3"><a class="fc-list-heading-main" data-goto="{&quot;date&quot;:&quot;2020-01-28&quot;,&quot;type&quot;:&quot;day&quot;}">28 de janeiro de 2020</a><a class="fc-list-heading-alt" data-goto="{&quot;date&quot;:&quot;2020-01-28&quot;,&quot;type&quot;:&quot;day&quot;}">terça-feira</a></td>
+                                                                    </tr>
+                                                                    <tr class="fc-list-item fc-has-url">
+                                                                        <td class="fc-list-item-time fc-widget-content">dia inteiro</td>
+                                                                        <td class="fc-list-item-marker fc-widget-content"><span class="fc-event-dot"></span></td>
+                                                                        <td class="fc-list-item-title fc-widget-content"><a href="http://google.com/">Click for Google</a></td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </main>
+                    <!-- this overlay is activated only when mobile menu is triggered -->
+                    <div class="page-content-overlay" data-action="toggle" data-class="mobile-nav-on"></div> <!-- END Page Content -->
+                    <!-- BEGIN Page Footer -->
+                    <footer class="page-footer" role="contentinfo">
+                        <div class="d-flex align-items-center flex-1 text-muted">
+                            <a href="http://simplesnologia.biz/" class="text-secondary fw-700" style="margin:auto">
+                                <img src="/img/svg/biz-rodape.svg" />
+                            </a>
+                        </div>
+                    </footer>
+                    <!-- END Page Footer -->
+                    <!-- BEGIN Color profile -->
+                    <!-- this area is hidden and will not be seen on screens or screen readers -->
+                </div>
+            </div>
+        </div>
+        <!-- END Page Wrapper -->
+        <!-- BEGIN Quick Menu -->
+
+        <!-- base vendor bundle: 
+			 DOC: if you remove pace.js from core please note on Internet Explorer some CSS animations may execute before a page is fully loaded, resulting 'jump' animations 
+						+ pace.js (recommended)
+						+ jquery.js (core)
+						+ jquery-ui-cust.js (core)
+						+ popper.js (core)
+						+ bootstrap.js (core)
+						+ slimscroll.js (extension)
+						+ app.navigation.js (core)
+						+ ba-throttle-debounce.js (core)
+						+ waves.js (extension)
+						+ smartpanels.js (extension)
+						+ src/../jquery-snippets.js (core) -->
+        <script src="js/vendors.bundle.js"></script>
+        <script src="js/app.bundle.js"></script>
+        <script src="js/datagrid/datatables/datatables.bundle.js"></script>
+        <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+        <script src="js/app.js"></script>    
+        <!-- The order of scripts is irrelevant. Please check out the plugin pages for more details about these plugins below: -->
+        <script src="js/miscellaneous/jqvmap/jqvmap.bundle.js"></script>
+    </body>
+</html>
